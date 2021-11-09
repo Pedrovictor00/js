@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Sistemas de multas</h3>
+    coloque a sua velocidade <input type="number" name="texto" class="texto">
+    <input type="button" value="calcular" onclick="calcular()">
+    <div class="res">
+
+        <script>
+            function calcular(){
+                var vel = window.document.querySelector('input.texto')
+                var veln = Number(vel.value)
+                var resposta = window.document.querySelector('div.res') 
+                resposta.innerHTML = 'A sua velocidade e de ' + veln + ' entao <br> ' 
+
+                if (veln >80) {
+                    resposta.innerHTML += 'A sua velocidade excedeu o limite isso merece uma multa <br> ' 
+                }
+                else {
+                    resposta.innerHTML += 'Voce passou no primeiro teste parabens mais vamos ver se vence neste <br> '
+                    if (veln>50){
+                        resposta.innerHTML += 'Nao e mior que 80 mais e maior que 50 te peguei <br>'
+
+                    }
+                    else{
+                        
+                    }
+                    resposta.innerHTML += 'Parabens a sua velocidade e muito boa <br>'
+                }
+
+            }
+
+
+        </script>
+
+</body>
+</html>

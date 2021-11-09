@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aquamarine;
+            font-family: rubik;
+            font-weight: 500;
+        }
+
+        div{
+            background-color: white;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        section{
+            border-radius: 10px;
+            padding: 10px;
+            background-color: white;
+            width: 600px;
+            margin: auto;
+        }
+        footer{
+            text-align: center;
+        }
+        select{
+            width: 150px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+       <h1>Analisador de Numeros</h1> 
+    </header>
+    <?php
+    echo "Ola mundo";
+    ?>
+<div></div>
+    <section>
+        <div id="dados">
+           Numero entre (1 a 100) <input type="number" name="fnum" id="fnum">
+           <input type="button" value="Adicionar" onclick="Adicionar()">
+           <br><br>
+           <select name="flista" id="flista" size="7"></select> 
+           <br><br>
+           <input type="button" value="Finalizar" onclick="Finalizar()">
+        </div>
+
+        <div id="res">
+           
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy;PedroVictor</p>
+    </footer>
+    <script>
+        var num = document.getElementById("fnum")
+        var lista = document.getElementById("flista")
+        var res = document.getElementById("res")
+        var valores = []
+
+        function isNumero(n){
+            if(Number(n)>=1 && Number(n) <=100){
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function inLista(n, l){
+            if (l.indexOf(Number(n)) != -1){
+                return true
+            } else {
+                return false
+            }
+        }
+
+
+        function Adicionar(){
+            if(isNumero(num.value) && !inLista(num.value, valores)){
+                valores.push(Number(num.value))
+                var item = document.createElement('option')
+                item.innerHTML = ('Valor '+num.value+' adicionado')
+                lista.appendChild(item)
+                
+            } else{
+                alert('Valor Invalido ou ja encontrdo na lista')
+            }
+
+            num.value = ''
+            num.focus()
+
+        }
+
+        function Finalizar(){
+            if(valores.length == 0) {
+                window.alert('Adicione valores antes')
+            } else{
+                var tot = valores.length
+                var maior = valores[0]
+                var menor = valores[0]
+                var soma = 0
+                var medio = 0
+                for (var pos in valores) {
+                    soma += valores[pos]
+                    if(valores[pos] > maior)
+                    maior = valores[pos]
+                    if (valores[pos] < menor)
+                    menor = valores[pos]
+                }
+
+                res.innerHTML = ''
+                res.innerHTML += ('<p>' + 'Ao todo, temos ' + tot + ' numeros adicionados' + '</p>')
+                res.innerHTML += ('<p>' + 'O maior valor adicionado foi ' + maior + '</p>')
+                res.innerHTML += ('<p>' + 'O menor valor adicionado foi ' + menor + '</p>')
+                res.innerHTML += ('<p>' + 'Asoma dos valores e igual a ' + soma + '</p>')
+
+
+            }
+        }
+    </script>
+    
+</body>
+</html>

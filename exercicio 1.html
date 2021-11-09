@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+    <style>
+        body{
+            background-color: aquamarine;
+            font-family: arial;
+            color: white;
+            text-align: center;
+
+            font-size: 14px;
+        
+        }
+        img{
+            width: 30%;
+        }
+        h1{
+            text-align: center;
+        }
+
+        footer{
+            text-align: center;
+        }
+        section{
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body onload="caregar()">
+    <header>
+        <h1>Titulo</h1>
+
+    </header>
+
+    <section>
+     <div id="msg">
+        Aqui vai aparecer a mensagem
+      </div>
+      <div id="foto">
+         <img src="fotosex1/13.png" alt="fotosex1" >
+        </div>
+        </section>
+    <footer>
+        <p>&copy;PedroVictor</p>
+    </footer>
+
+
+    <script>
+
+        function caregar(){
+
+        var msg = window.document.getElementById('msg')
+        var img = window.document.getElementById('foto')
+        var img = document.createElement("img")
+        var hora = new Date()
+
+        msg.innerHTML = 'Agora sao ' + hora.getHours() + 'horas'
+        }
+
+        if (hora >= 0 && hora < 12) {
+            img.src="fotosex1/13.png"
+        } 
+        else if (hora >= 12 && hora < 18) {
+            document.images.src = 'fotosex1/18.png'
+
+        }
+        else {
+            img.src = "fotosex1/19.png"
+        }
+
+    </script>
+
+</body>
+</html>

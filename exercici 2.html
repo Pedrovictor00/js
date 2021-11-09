@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aquamarine;
+            font-family: rubik;
+            font-weight: 500;
+        }
+
+        div{
+            background-color: white;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        section{
+            border-radius: 10px;
+            padding: 10px;
+            background-color: white;
+        }
+        footer{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+       <h1>Verificador de idade</h1> 
+    </header>
+    
+    <section>
+        <div>
+            <p>Ano de Nascimento:</p>
+            <input type="number" name="textano" class="textano">
+            <p> Sexo:
+                <input type="radio" name="radsex" id="mas" checked>
+                <label for="mas">Masculino</label>
+                <input type="radio" name="radsex" id="fem">
+                <label for="fem">Feminina</label>
+            </p>
+            <p>
+                <input type="button" value="verificar" onclick="verificar()">
+            </p>
+        </div>
+
+        <div class="res">
+            Preencha os dados acima para ver a sua idade!
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy;PedroVictor</p>
+    </footer>
+    <script>
+        function verificar(){
+            var data = new Date()
+            var ano = data.getFullYear()   
+            var fano = document.querySelector('input.textano')
+            var res = document.querySelector('div.res')
+            if (fano.value.lenght == 0 || fano.value > ano){
+                window.alert('Verifique os seus dados')
+            } else{
+                var fsex = document.getElementsByName('radsex')
+                var idade = ano - Number(fano.value)
+                var genero = ''
+                var img = document.createElement('img')
+                img.setAttribute('id', 'foto')
+                if (fsex[0].checked) {
+                    genero = 'Homem'
+                    if(idade >= 0 && idade < 10 ) {
+                        img.setAttribute('src', 'DSC_0044.png')
+                    } else if (idade < 21) {
+
+                    } else if (idade < 50) {
+
+                    }
+                }else if (fsex[1].checked){
+                    genero = 'Mulher'
+                    if(idade >= 0 && idade < 10 ) {
+                        img.setAttribute('src', 'DSC_0044.png')
+                    } else if (idade < 21) {
+
+                    } else if (idade < 50) {
+
+                    }
+
+                }
+                res.innerHTML = 'Detectamos ' + genero + ' com a idade de ' + idade
+                res.appendChild(img)
+                    
+            }
+
+        }
+    </script>
+    
+</body>
+</html>
